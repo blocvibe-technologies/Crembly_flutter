@@ -1,175 +1,335 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
 import '../../utils/AppColors.dart';
-
+import '../../widgets/color_text_button.dart';
 
 class HomeScreen extends StatelessWidget {
-
-  String generateText(int index) {
-    String text;
-    switch (index) {
-      case 0:
-        text = "Initial\nStock";
-        break;
-      case 1:
-        text = "Raw Material\nEntry";
-        break;
-      case 2:
-        text = "Product\nExit";
-        break;
-      case 3:
-        text = "In Production\nCycle";
-        break;
-      default:
-        text = "Unknown";
-        break;
-    }
-    return text;
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.bgColor,
-        appBar: AppBar(
-          backgroundColor: AppColors.bgColor,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                // Add your onPressed action here
-                Get.toNamed(AppRoute.settings);
-                // GoRouter.of(context).pushNamed(MyAppRouteConstants.settingsRouteName);
-              },
-            ),
-          ],
-          title: const Text(
-            textAlign: TextAlign.center,
-            'Rebar Performance',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
-          ),
-          bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(1.0), // Set the height of the divider
-            child: Divider(
-              color: Colors.yellow,
-              height: 10, // Set the height of the divider
-              thickness: 8,
-            ),
-          ),
-        ),
-
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
-
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // const Divider(
-              //   height: 3,
-              //   color: Colors.yellow,
-              // ),
-              // const SizedBox(height: 30),
-              const Text(
-                "Production Performance",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-
-                    fontSize: 22),
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  Expanded(
-                    child: AspectRatio(
-                      aspectRatio: 1.1,
-                      child: InkWell(
-                        onTap: ()=>{
-                          // Get.toNamed(MyRoute.add_report_bottom_nav)
-                          // GoRouter.of(context).pushamed(MyAppRouteConstants.addReportRouteName)
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.all(8.0),
-                          decoration: const BoxDecoration(
-                            color: AppColors.activeBoxColor,
-                            borderRadius: BorderRadius.horizontal(
-                              left: Radius.circular(10.0),
-                              right: Radius.circular(10.0),
+              Container(
+                color: AppColors.primaryColor,
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    const Row(
+                      children: [
+                        Expanded(
+                            child: Text("satwinder",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20))),
+                        Icon(
+                          Icons.wallet,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "10 Ruypee",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 52,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                            7), // Adjust the value as needed
+                        // border: Border.all(
+                        //   color: Colors.grey, // Add border color if needed
+                        //   width: 1, // Add border width if needed
+                        // ),
+                      ),
+                      child: const Row(
+                        children: [
+                          Icon(Icons.search),
+                          Expanded(
+                            child: TextField(
+                              textAlignVertical: TextAlignVertical.center,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.symmetric(horizontal: 8),
+                                isDense: true,
+                                hintText: "Where should it go?",
+                              ),
                             ),
                           ),
-                          alignment: Alignment.center,
-                          child: const Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add_circle_outline,
-                                size: 30,
-                              ),
-                              Text(
-                                "Add Report",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: AppColors.textColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700),
-                              )],
-                          ),
-                        ),
+                          Icon(Icons.settings),
+                        ],
                       ),
                     ),
-                  ),
-                  // const SizedBox(
-                  //   width: 16,
-                  // ),
-
-                ],
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                "Inventry Balance",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-
-                    fontSize: 22),
-              ),
-              const SizedBox(height: 10),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  children: List.generate(4, (index) {
-                    return Container(
-                      margin: const EdgeInsets.all(8.0),
-                      decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.horizontal(
-                          left: Radius.circular(10.0),
-                          right: Radius.circular(10.0),
-                        ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                            7), // Adjust the value as needed
+                        // border: Border.all(
+                        //   color: Colors.grey, // Add border color if needed
+                        //   width: 1, // Add border width if needed
+                        // ),
                       ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        generateText(index),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.error,
+                            color: AppColors.error_blue,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text("New here? This is how you earn cashback")
+                        ],
                       ),
-                    );
-                  }),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    )
+                  ],
                 ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: Text("Deals for you",
+                              style: TextStyle(
+                                  // decoration: TextDecoration.underline,
+                                  color: Colors.black,
+                                  fontSize: 20.4)),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'View all',
+                            style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                color: Colors.black,
+                                fontSize: 12.4),
+                          ),
+                        )
+                      ],
+                    ),
+                    Text(
+                      'Book your trip with the best price & additional cashback.',
+                      style: TextStyle(
+                          // decoration: TextDecoration.underline,
+                          color: Colors.black,
+                          fontSize: 12.4),
+                    ),
+                    SizedBox(
+                      height: 290,
+                      child: ListView.builder(
+          
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return DealItem();
+                        },
+                      ),
+                    ),
+                    //
+                    // SizedBox(height: 10,),
+                    itemHeading(
+                      "Culinary holiday for gourmets",
+                      "View all",
+                      () {
+                        // Add your onPressed logic here
+                      },
+                    ),
+        
+                    SizedBox(
+                      height: 290,
+                      child: ListView.builder(
+        
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return DealItem();
+                        },
+                      ),
+                    ),
+        
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget DealItem() {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            width: 218,
+            height: 199,
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: AppColors.disable_card,
+              borderRadius:
+                  BorderRadius.circular(7), // Adjust the value as needed
+              // border: Border.all(
+              //   color: Colors.grey, // Add border color if needed
+              //   width: 1, // Add border width if needed
+              // ),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                      child: Icon(Icons.favorite_outline),
+                      radius: 16.2,
+                      backgroundColor: Colors.white),
+                ),
+                Expanded(
+                  child: SizedBox(
+                    height: 10,
+                  ),
+                ),
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Text(
+                      "210 €",
+                      style: TextStyle(
+                          fontSize: 9.4,
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.red),
+                    ),
+                    SizedBox(width: 8),
+                    Text(
+                      "110 €",
+                      style: TextStyle(fontSize: 14.4),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ColorTextBotton(
+                      color: AppColors.container_1,
+                      text: 'Daily deal',
+                      textColor: AppColors.orange,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    ColorTextBotton(
+                      color: AppColors.container_2,
+                      text: 'Up to €20 cashback',
+                      textColor: AppColors.error_blue,
+                    ),
+                    // ColorTextBotton(color: AppColors.orange, text: 'Daily deal',),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const Text(
+            'Brnistra Suites',
+            style: TextStyle(fontSize: 14),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          const Row(
+            children: [
+              Icon(Icons.location_on_outlined, size: 20),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                'Poljud, Split',
+                style: TextStyle(fontSize: 10.4),
               )
             ],
           ),
-        ));
+          const SizedBox(
+            width: 8,
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(Icons.star, color: Colors.yellow, size: 20),
+              SizedBox(
+                width: 8,
+              ),
+              Text('4.8', style: TextStyle(fontSize: 10.4))
+            ],
+          ),
+        ],
+      ),
+    );
   }
+  Widget itemHeading(String titleText, String buttonText, VoidCallback onPressed) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            titleText,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: onPressed,
+          child: Text(
+            buttonText,
+            style: TextStyle(
+              decoration: TextDecoration.underline,
+              color: Colors.black,
+              fontSize: 12.4,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
 }
-
-

@@ -2,8 +2,12 @@
 
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:tmdp_cashback_flutter/screens/home/home_screen.dart';
+import 'package:tmdp_cashback_flutter/screens/on_boarding/login/complete_rejistration.dart';
 import 'package:tmdp_cashback_flutter/screens/on_boarding/login/login_rejister_screen.dart';
 
+import '../../screens/bottom_navigation_bar/AppBottomNavigationBar.dart';
+import '../../screens/home/travel_booking_detail.dart';
 import '../../screens/on_boarding/splash_screen/SplashScreen.dart';
 
 
@@ -19,6 +23,10 @@ class AppRoute{
     // GetPage(name: MyRoute.home, page: () => HomeScreen()),
     GetPage(name: splash, page: () => SplashScreen()),
     GetPage(name: login_rejister, page: () =>  LoginRejisterScreen()),
+    GetPage(name: complete_registration, page: () =>  CompleteRejistrationScreen()),
+    GetPage(name: bottom_nav_bar, page: () =>  const AppBottomNavigationBar()),
+    GetPage(name: home, page: () =>  HomeScreen()),
+    GetPage(name: travel_booking_detail, page: () => const TravelBookingDetailScreen()),
 
 
     // GetPage(name: MyRoute.under_development, page: () => const ErrorScreen()),
@@ -29,7 +37,10 @@ class AppRoute{
 
   static const String splash = '/splash';
   static const String home = '/';
-  static const String login_rejister = '/login-register';
+  static const String login_rejister = '/login_rejister';
+  static const String bottom_nav_bar = '/bottom_nav_bar';
+  static const String travel_booking_detail = '/travel_booking_detail';
+  static const String complete_registration = '/complete_registration';
   static const String signUp = '/sign_up';
   static const String privacy = '/privacy';
   static const String terms = '/terms';

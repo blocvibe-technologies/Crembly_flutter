@@ -22,30 +22,34 @@ class CustomButton extends StatefulWidget {
 class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return SizedBox(
+      height: 47,
+      width:MediaQuery.of(context).size.width,
+      child: TextButton(
 
 
-      style: ButtonStyle(
+        style: ButtonStyle(
 
-        backgroundColor: MaterialStateProperty.all<Color>(
-          widget.color ?? Colors.black, // Use widget.color if not null, otherwise use Colors.black
-        ),
-        // padding: MaterialStateProperty.all<EdgeInsets>(
-        //   EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        // ),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+          backgroundColor: MaterialStateProperty.all<Color>(
+            widget.color ?? Colors.black, // Use widget.color if not null, otherwise use Colors.black
+          ),
+          // padding: MaterialStateProperty.all<EdgeInsets>(
+          //   EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          // ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
-      ),
-      onPressed: widget.onPressed??(){},
-      child:  Text( widget.btnText,   style: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.normal,
-        color: Colors.white,
-      ),),
+        onPressed: widget.onPressed??(){},
+        child:  Text( widget.btnText,   style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.normal,
+          color: Colors.white,
+        ),),
 
+      ),
     );
   }
 }

@@ -12,12 +12,19 @@ class AppColors {
   static const Color bgColor = Color(0xFFebebeb); //bg
   static const Color disable_textcolor = Color(0xFF6D6D6D); //bg
   static const Color border_color = Color(0xFFB1B1B1); //bg
+  static const Color error_blue = Color(0xFF1673DF);
+  static const Color orange = Color(0xFFF57416);
+  static const Color container_1 = Color(0xFFFFECD6);
+  static const Color container_2 = Color(0xFFE4F9DD);
+  static const Color disable_card = Color(0xFFEAEAEA);
 
 
 
 
   static const Color selectedTabTextColor = Colors.black; //bg
   static const Color unSelectedTabTextColor = Colors.white; //bg
+
+
 
 // Add more color constants as needed
 }
