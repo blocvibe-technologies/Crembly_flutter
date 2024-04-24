@@ -49,6 +49,7 @@ dependencies:
   country_picker: ^2.0.25
   google_fonts: ^6.2.1
   carousel_slider: ^4.2.1
+  table_calendar: ^3.0.9
 
 
 
@@ -80,6 +81,7 @@ flutter:
     - assets/boy.jpeg
     - assets/rebar_performance.png
     - assets/crembly_logo.svg
+    - assets/book.png
 #    - packages/country_code_picker/flags/
 
   # An image asset can refer to one or more resolution-specific "variants", see

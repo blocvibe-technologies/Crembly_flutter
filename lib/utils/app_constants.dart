@@ -6,4 +6,5 @@ class AppConstants {
   static String line3 ="To register, you must be at least 18 years old. Your birthday will not be passed on to other users.";
   static String line4 ="We will send you travel confirmations and receipts by e-mail.\nThis info comes from Apple because you chose “Continue with Apple” have chosen.";
   static String term_policy = "By selecting “Agree and Continue” I declare I agree with the terms of use, the terms of use for payment services and the Data protection declaration.";
+  static String line5 = "Affect payments made by partners the order of next to the respective accommodation prices displayed. The room categories can vary. More information about these results";
 }

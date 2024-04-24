@@ -191,117 +191,122 @@ class HomeScreen extends StatelessWidget {
   Widget DealItem() {
     return Padding(
       padding: const EdgeInsets.all(4.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            width: 218,
-            height: 199,
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: AppColors.disable_card,
-              borderRadius:
-                  BorderRadius.circular(7), // Adjust the value as needed
-              // border: Border.all(
-              //   color: Colors.grey, // Add border color if needed
-              //   width: 1, // Add border width if needed
-              // ),
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CircleAvatar(
-                      child: Icon(Icons.favorite_outline),
-                      radius: 16.2,
-                      backgroundColor: Colors.white),
-                ),
-                Expanded(
-                  child: SizedBox(
-                    height: 10,
+      child: InkWell(
+        onTap: (){
+          Get.toNamed(AppRoute.travel_booking_detail);
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: 218,
+              height: 199,
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: AppColors.disable_card,
+                borderRadius:
+                    BorderRadius.circular(7), // Adjust the value as needed
+                // border: Border.all(
+                //   color: Colors.grey, // Add border color if needed
+                //   width: 1, // Add border width if needed
+                // ),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                        child: Icon(Icons.favorite_outline),
+                        radius: 16.2,
+                        backgroundColor: Colors.white),
                   ),
-                ),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Text(
-                      "210 €",
-                      style: TextStyle(
-                          fontSize: 9.4,
-                          decoration: TextDecoration.lineThrough,
-                          color: Colors.red),
+                  Expanded(
+                    child: SizedBox(
+                      height: 10,
                     ),
-                    SizedBox(width: 8),
-                    Text(
-                      "110 €",
-                      style: TextStyle(fontSize: 14.4),
-                    ),
-                  ],
-                ),
+                  ),
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      Text(
+                        "210 €",
+                        style: TextStyle(
+                            fontSize: 9.4,
+                            decoration: TextDecoration.lineThrough,
+                            color: Colors.red),
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "110 €",
+                        style: TextStyle(fontSize: 14.4),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      ColorTextBotton(
+                        color: AppColors.container_1,
+                        text: 'Daily deal',
+                        textColor: AppColors.orange,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      ColorTextBotton(
+                        color: AppColors.container_2,
+                        text: 'Up to €20 cashback',
+                        textColor: AppColors.error_blue,
+                      ),
+                      // ColorTextBotton(color: AppColors.orange, text: 'Daily deal',),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            const Text(
+              'Brnistra Suites',
+              style: TextStyle(fontSize: 14),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            const Row(
+              children: [
+                Icon(Icons.location_on_outlined, size: 20),
                 SizedBox(
-                  height: 8,
+                  width: 8,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ColorTextBotton(
-                      color: AppColors.container_1,
-                      text: 'Daily deal',
-                      textColor: AppColors.orange,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    ColorTextBotton(
-                      color: AppColors.container_2,
-                      text: 'Up to €20 cashback',
-                      textColor: AppColors.error_blue,
-                    ),
-                    // ColorTextBotton(color: AppColors.orange, text: 'Daily deal',),
-                  ],
-                ),
+                Text(
+                  'Poljud, Split',
+                  style: TextStyle(fontSize: 10.4),
+                )
               ],
             ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          const Text(
-            'Brnistra Suites',
-            style: TextStyle(fontSize: 14),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          const Row(
-            children: [
-              Icon(Icons.location_on_outlined, size: 20),
-              SizedBox(
-                width: 8,
-              ),
-              Text(
-                'Poljud, Split',
-                style: TextStyle(fontSize: 10.4),
-              )
-            ],
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(Icons.star, color: Colors.yellow, size: 20),
-              SizedBox(
-                width: 8,
-              ),
-              Text('4.8', style: TextStyle(fontSize: 10.4))
-            ],
-          ),
-        ],
+            const SizedBox(
+              width: 8,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(Icons.star, color: Colors.yellow, size: 20),
+                SizedBox(
+                  width: 8,
+                ),
+                Text('4.8', style: TextStyle(fontSize: 10.4))
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

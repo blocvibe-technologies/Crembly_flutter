@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -17,6 +18,8 @@ class AppColors {
   static const Color container_1 = Color(0xFFFFECD6);
   static const Color container_2 = Color(0xFFE4F9DD);
   static const Color disable_card = Color(0xFFEAEAEA);
+  static const Color container_color1 = Color(0xFFB1B1B1);
+
 
 
 

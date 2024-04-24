@@ -6,8 +6,11 @@ import 'package:tmdp_cashback_flutter/screens/on_boarding/login/login_rejister_s
 
 import '../../utils/AppColors.dart';
 import '../home/travel_booking_detail.dart';
+import '../home/travel_booking_details_compair.dart';
 import '../on_boarding/login/complete_rejistration.dart';
 import '../on_boarding/splash_screen/SplashScreen.dart';
+import '../profile/profile_screen.dart';
+import '../saved/saved_screen.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   const AppBottomNavigationBar({super.key});
@@ -26,8 +29,8 @@ class _ViewReportBottomNavigationBar extends State<AppBottomNavigationBar> {
       // const Center(child: Icon(Icons.calendar_month,size: 64,color: Colors.cyan,),),
       HomeScreen(),
       TravelBookingDetailScreen(),
-      CompleteRejistrationScreen(),
-      HomeScreen(),
+      SavedScreen(),
+      ProfileScreen(),
 
 
       // const Center(child: Icon(Icons.settings,size: 64,color: Colors.teal,),)
