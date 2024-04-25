@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:tmdp_cashback_flutter/screens/home/home_screen.dart';
 import 'package:tmdp_cashback_flutter/screens/on_boarding/login/login_rejister_screen.dart';
+import 'package:tmdp_cashback_flutter/screens/search/SearchScreen.dart';
 
 import '../../utils/AppColors.dart';
 import '../home/travel_booking_detail.dart';
@@ -28,7 +29,7 @@ class _ViewReportBottomNavigationBar extends State<AppBottomNavigationBar> {
       // const Center(child: Icon(Icons.calendar_today,size: 64,color: Colors.teal,),),
       // const Center(child: Icon(Icons.calendar_month,size: 64,color: Colors.cyan,),),
       HomeScreen(),
-      TravelBookingDetailScreen(),
+      SearchScreen(),
       SavedScreen(),
       ProfileScreen(),
 

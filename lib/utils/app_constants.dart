@@ -7,4 +7,6 @@ class AppConstants {
   static String line4 ="We will send you travel confirmations and receipts by e-mail.\nThis info comes from Apple because you chose “Continue with Apple” have chosen.";
   static String term_policy = "By selecting “Agree and Continue” I declare I agree with the terms of use, the terms of use for payment services and the Data protection declaration.";
   static String line5 = "Affect payments made by partners the order of next to the respective accommodation prices displayed. The room categories can vary. More information about these results";
+  static String line6 = "Note that the account can receive payments from third parties. For example, withdrawals to Trade Republic accounts are not possible.";
+  static String line7 = " Help us make your account even\nmore secure by verifying your email.";
 }

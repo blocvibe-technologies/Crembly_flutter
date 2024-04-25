@@ -8,11 +8,15 @@ class CustomButton extends StatefulWidget {
    final Function ()? onPressed ;
    final String btnText ;
    final Color? color;
+   final Color? textColor;
+   final double? fontSize;
     const CustomButton({
     super.key,
     required this.btnText,
     this.onPressed,
-    this.color
+    this.color,
+      this.textColor,
+      this.fontSize
     });
 
   @override
@@ -43,10 +47,11 @@ class _CustomButtonState extends State<CustomButton> {
           ),
         ),
         onPressed: widget.onPressed??(){},
-        child:  Text( widget.btnText,   style: const TextStyle(
-          fontSize: 18,
+        child:  Text( widget.btnText,
+          style: TextStyle(
+          fontSize: widget.fontSize??18,
           fontWeight: FontWeight.normal,
-          color: Colors.white,
+          color: widget.textColor??Colors.white,
         ),),
 
       ),

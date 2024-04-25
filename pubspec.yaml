@@ -82,6 +82,7 @@ flutter:
     - assets/rebar_performance.png
     - assets/crembly_logo.svg
     - assets/book.png
+    - assets/question_outline.svg
 #    - packages/country_code_picker/flags/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,5 +1,7 @@
 
 
+import 'dart:ui';
+
 class AppFunctions{
 
   static String formatCountryCode(String text) {
@@ -8,5 +10,8 @@ class AppFunctions{
 
     // Format the country code as "(+xxx)"
     return '(+$countryCode)';
+  }
+  static Color hexToColor(String code) {
+    return Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
   }
 }
