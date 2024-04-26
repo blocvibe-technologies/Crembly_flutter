@@ -1,17 +1,12 @@
 
 import 'package:country_picker/country_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:tmdp_cashback_flutter/utils/AppColors.dart';
 import 'package:tmdp_cashback_flutter/utils/app_constants.dart';
 import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 import '../../../widgets/CustomButton.dart';
-import '../../../widgets/app_text_field.dart';
+import '../../../widgets/custom_text_field1.dart';
 import '../../../widgets/text_box_button.dart';
 import '../../../widgets/underline_text_widget.dart';
 
@@ -44,65 +39,20 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
 
             children: [
               const SizedBox(height: 25,),
-
-
               Container(
-                // margin: const EdgeInsets.all(8),
-
-                width: MediaQuery.of(context).size.width,
-
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey,width: 1), // Grey stroke
-                  borderRadius: BorderRadius.circular(7.0), // Rounded corners
-                  color: Colors.white, // White background
+                    border: Border.all(
+                      color:  AppFunctions.hexToColor("#B1B1B1"),
+                      width: 1.0, // Adjust the width as needed
+                    ),
+                    borderRadius: BorderRadius.circular(7)
                 ),
-
-
                 child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Wrap(
-                          children: [
-                            Text('First Name'),
-                            TextField(
-                              textAlignVertical: TextAlignVertical.center,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.zero,
-                                isDense: true,
-                                hintText: "satwinder",
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      Divider(height: 1,thickness: 1,color: AppColors.disable_textcolor,),
-                      // const SizedBox(height: 8,),
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Wrap(
-                          children: [
-                            Text('Surname'),
-                            TextField(
-                              textAlignVertical: TextAlignVertical.center,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.zero,
-                                isDense: true,
-                                hintText: "shergill",
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-
-                    ]
-
+                  children: [
+                    CustomTextField1(hint: 'Satwinder', titleText: 'First Name',),
+                    Divider(color: Colors.grey,height: 1,thickness: 1,),
+                    CustomTextField1(hint: 'Shergill', titleText: 'Last Name',),
+                  ],
                 ),
               ),
               const SizedBox(height: 8,),
@@ -113,9 +63,9 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
                     fontSize: 10.4,
                     fontWeight: FontWeight.w400
                 ),),
-              const SizedBox(height: 12,),
+              const SizedBox(height: 20,),
 
-              TextBoxButton(text: 'dlsffoaisjf',),
+              TextBoxButton(text: 'Birthday (DD.MM.YYYY)',),
               const SizedBox(height: 8,),
               Text(
                 AppConstants.line3,
@@ -125,10 +75,21 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
                     fontWeight: FontWeight.w400
                 ),),
 
+              const SizedBox(height: 20,),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color:  AppFunctions.hexToColor("#B1B1B1"),
+                      width: 1.0, // Adjust the width as needed
+                    ),
+                    borderRadius: BorderRadius.circular(7)
+                ),
+                child: const CustomTextField1(hint: 'satwindersinghasr2@gmail.com', titleText: 'E-mail address',),
+              ),
               const SizedBox(height: 8,),
-              const AppTextField(titleText: 'E-mail address', hintText: 'satwinder@gmail.com',),
 
-              const SizedBox(height: 8,),
+
+
               Text(
                 AppConstants.line4,
                 style: const TextStyle(
@@ -137,7 +98,7 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
                     fontWeight: FontWeight.w400
                 ),),
 
-              const SizedBox(height: 20,),
+              const SizedBox(height: 40,),
               UnderlinedText(data: AppConstants.term_policy, wordsToUnderline: ['terms' ,'of', 'use', 'Data', 'protection', 'declaration'],),
               const SizedBox(height: 30,),
                CustomButton(btnText: 'Agree and Continue',onPressed: (){

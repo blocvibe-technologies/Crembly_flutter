@@ -83,6 +83,11 @@ flutter:
     - assets/crembly_logo.svg
     - assets/book.png
     - assets/question_outline.svg
+    - assets/home.svg
+    - assets/search.svg
+    - assets/slider.svg
+    - assets/marker_ic.svg
+    - assets/star.svg
 #    - packages/country_code_picker/flags/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -96,10 +101,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: inter
+      fonts:
+         - asset: fonts/Inter-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

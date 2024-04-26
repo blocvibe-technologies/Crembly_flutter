@@ -95,12 +95,14 @@ class BookingTransactionScreen extends StatelessWidget {
                       switch (index) {
                         case 0:
                         // Handle case when index is 0
+                          Get.toNamed(AppRoute.booking_transaction_details_screen);
                           break;
                         case 1:
                           Get.toNamed(AppRoute.personal_data_screen);
                           break;
                         case 2:
                         // Handle case when index is 2
+                          Get.toNamed(AppRoute.booking_transaction_details_screen);
                           break;
                         case 3:
                         // Handle case when index is 3

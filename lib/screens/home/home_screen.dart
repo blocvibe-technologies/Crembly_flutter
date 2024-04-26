@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
 import '../../utils/AppColors.dart';
@@ -27,9 +29,10 @@ class HomeScreen extends StatelessWidget {
                     const Row(
                       children: [
                         Expanded(
-                            child: Text("satwinder",
+                            child: Text("Discover",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 20))),
+                                    fontFamily: "inter",
+                                    color: Colors.white, fontSize: 26,fontWeight: FontWeight.w700))),
                         Icon(
                           Icons.wallet,
                           color: Colors.white,
@@ -38,8 +41,9 @@ class HomeScreen extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
-                          "10 Ruypee",
-                          style: TextStyle(color: Colors.white),
+                          "0€",
+                          style: TextStyle(color: Colors.white,fontSize: 19.4,fontWeight: FontWeight.w700,
+                          fontFamily: "inter"),
                         ),
                       ],
                     ),
@@ -59,10 +63,10 @@ class HomeScreen extends StatelessWidget {
                         //   width: 1, // Add border width if needed
                         // ),
                       ),
-                      child: const Row(
+                      child:  Row(
                         children: [
                           Icon(Icons.search),
-                          Expanded(
+                          const Expanded(
                             child: TextField(
                               textAlignVertical: TextAlignVertical.center,
                               decoration: InputDecoration(
@@ -74,7 +78,10 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Icon(Icons.settings),
+                          SvgPicture.asset('assets/slider.svg',
+                          height: 20,
+                          width: 20,),
+                          SizedBox(width: 8,)
                         ],
                       ),
                     ),
@@ -101,7 +108,10 @@ class HomeScreen extends StatelessWidget {
                           SizedBox(
                             width: 8,
                           ),
-                          Text("New here? This is how you earn cashback")
+                          Text("New here? This is how you earn cashback",
+                          style: TextStyle(
+                            fontSize: 13
+                          ),)
                         ],
                       ),
                     ),
@@ -124,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                               style: TextStyle(
                                   // decoration: TextDecoration.underline,
                                   color: Colors.black,
-                                  fontSize: 20.4)),
+                                  fontSize: 20.4,fontWeight: FontWeight.w500)),
                         ),
                         TextButton(
                           onPressed: () {},
@@ -275,18 +285,20 @@ class HomeScreen extends StatelessWidget {
             ),
             const Text(
               'Brnistra Suites',
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14,color: Colors.black,fontWeight: FontWeight.w500),
             ),
             const SizedBox(
               height: 4,
             ),
-            const Row(
+             Row(
               children: [
-                Icon(Icons.location_on_outlined, size: 20),
-                SizedBox(
+              SvgPicture.asset('assets/marker_ic.svg',
+              height: 20,
+              width: 20,),
+                const SizedBox(
                   width: 8,
                 ),
-                Text(
+                const Text(
                   'Poljud, Split',
                   style: TextStyle(fontSize: 10.4),
                 )
@@ -295,14 +307,14 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               width: 8,
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+             Row(
+              mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.star, color: Colors.yellow, size: 20),
-                SizedBox(
+                Icon(Icons.star_outlined, color: AppFunctions.hexToColor("#F5C139"), size: 24),
+                const SizedBox(
                   width: 8,
                 ),
-                Text('4.8', style: TextStyle(fontSize: 10.4))
+                 Text('4.8', style: TextStyle(fontSize: 10.4,fontWeight: FontWeight.w500,color: AppFunctions.hexToColor("#6D6D6D")))
               ],
             ),
           ],
@@ -316,9 +328,10 @@ class HomeScreen extends StatelessWidget {
         Expanded(
           child: Text(
             titleText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 20,
+              fontWeight: FontWeight.w500
             ),
           ),
         ),

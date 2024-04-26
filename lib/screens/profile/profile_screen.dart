@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
   SettingListItemModel(icon: Icons.receipt, text: 'Bookings & Transactions'),
   SettingListItemModel(icon: Icons.person, text: 'Personal Data'),
   SettingListItemModel(icon: Icons.lock, text: 'Account & Security'),
-  SettingListItemModel(icon: Icons.question_mark_rounded, text: 'Support'),
+  SettingListItemModel(icon: Icons.help_outline, text: 'Support'),
 
   ];
   @override
@@ -172,9 +172,13 @@ class ProfileScreen extends StatelessWidget {
                           Get.toNamed(AppRoute.personal_data_screen);
                           break;
                         case 2:
+                          Get.toNamed(AppRoute.account_security_screen);
+
                         // Handle case when index is 2
                           break;
                         case 3:
+                          Get.toNamed(AppRoute.support_screen);
+
                         // Handle case when index is 3
                           break;
                         case 4:

@@ -18,9 +18,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return GetMaterialApp(
+
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoute.splash,
       getPages: AppRoute().routes,
+      theme: ThemeData(
+          fontFamily: "inter",
+          textTheme: const TextTheme(
+              bodyText1: TextStyle(fontSize: 14.0), // Set default text size
+              // You can define other text styles as needed
+          ),
+
+      ),
       home: HomeScreen(),
       supportedLocales: [
         Locale("af"),
