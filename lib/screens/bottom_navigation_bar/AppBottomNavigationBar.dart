@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tmdp_cashback_flutter/screens/home/home_screen.dart';
 import 'package:tmdp_cashback_flutter/screens/on_boarding/login/login_rejister_screen.dart';
 import 'package:tmdp_cashback_flutter/screens/search/SearchScreen.dart';
@@ -37,10 +38,38 @@ class _ViewReportBottomNavigationBar extends State<AppBottomNavigationBar> {
       // const Center(child: Icon(Icons.settings,size: 64,color: Colors.teal,),)
     ];
     final _kBottomNavBarItems = <BottomNavigationBarItem>[
-      const BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Discover'),
-      const BottomNavigationBarItem(icon: Icon(Icons.search),label: 'Search'),
-      const BottomNavigationBarItem(icon: Icon(Icons.favorite),label: 'Saved'),
-      const BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Account')
+       BottomNavigationBarItem(
+         icon: SvgPicture.asset(
+        'assets/home.svg', // Path to your SVG file
+        width: 18,
+        height: 18,
+        color: _currentTabIndex == 0 ? Colors.black : Colors.grey, // Set color based on selected state
+      ),
+        label: 'Discover',
+       ),
+       BottomNavigationBarItem(icon: SvgPicture.asset(
+        'assets/search.svg', // Path to your SVG file
+         width: 18,
+         height: 18,
+        color: _currentTabIndex == 1 ? Colors.black : Colors.grey, // Set color based on selected state
+      ),
+        label: 'Search',
+      ),
+       BottomNavigationBarItem(
+         icon:Icon(Icons.favorite_outline, color: _currentTabIndex == 2 ? Colors.black : Colors.grey,size: 20,),
+
+        label: 'Saved',
+      ),
+       BottomNavigationBarItem(
+        icon: SvgPicture.asset(
+          'assets/person_1.svg', // Path to your SVG file
+          width: 16,
+          height: 16,
+          color: _currentTabIndex == 3 ? Colors.black : Colors.grey, // Set color based on selected state
+        ),
+        label: 'Account',
+
+      )
 
     ];
 
@@ -48,7 +77,7 @@ class _ViewReportBottomNavigationBar extends State<AppBottomNavigationBar> {
     final bottomNavBar = BottomNavigationBar(
       selectedItemColor: AppColors.selectedTabTextColor,
       unselectedItemColor: AppColors.unSelectedTabTextColor,
-      backgroundColor: const Color(0xFFfcc631),
+      backgroundColor: Colors.white,
       items: _kBottomNavBarItems,
       currentIndex: _currentTabIndex,
       type: BottomNavigationBarType.fixed,

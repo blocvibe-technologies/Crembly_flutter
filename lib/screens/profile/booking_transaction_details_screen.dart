@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tmdp_cashback_flutter/models/TransactionDetailedModel.dart';
@@ -18,10 +19,10 @@ class BookingTransactionDetailsScreen extends StatelessWidget {
   BookingTransactionDetailsScreen({super.key});
 
   List<TransactionDetailedModel> list = [
-    TransactionDetailedModel(needVerification: false,text: "Transaction-id",icon: Icons.receipt, detailsText: '#423123',),
-    TransactionDetailedModel(needVerification: true,text: "Status",icon: Icons.sync, detailsText: 'verified',),
-    TransactionDetailedModel(needVerification: false,text: "Cashback",icon: Icons.euro, detailsText: '32,40€',),
-    TransactionDetailedModel(needVerification: false,text: "Provider",icon: Icons.bookmark, detailsText: 'Booking.com',),
+    TransactionDetailedModel(needVerification: false,text: "Transaction-id",asset: "assets/receipt.svg", detailsText: '#423123',),
+    TransactionDetailedModel(needVerification: true,text: "Status",asset: 'assets/refresh.svg', detailsText: 'verified',),
+    TransactionDetailedModel(needVerification: false,text: "Cashback",asset: 'assets/euro.svg', detailsText: '32,40€',),
+    TransactionDetailedModel(needVerification: false,text: "Provider",asset: 'assets/bookmark.svg', detailsText: 'Booking.com',),
   ];
   @override
   Widget build(BuildContext context) {
@@ -69,9 +70,9 @@ class BookingTransactionDetailsScreen extends StatelessWidget {
               children: [
                 const Expanded(
                   child: Text(
-                    "Available for withdrawal",
+                    "Brnistra Suites",
                     textAlign: TextAlign.start,
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11,color: Colors.black),
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14.4,color: Colors.black),
                   ),
                 ),
                 Icon(Icons.location_on,color:AppFunctions.hexToColor("#5D5D5D"),size: 18,),
@@ -120,10 +121,15 @@ class BookingTransactionDetailsScreen extends StatelessWidget {
                       }
                     },
                     child: ListTile(
-                        leading:  Icon(list[index].icon,color: Colors.black,),
+                        leading: SvgPicture.asset(
+                          list[index].asset,
+                          width: 16,
+                          height: 16,
+                          color: Colors.black,
+                        ),
                         title: Text(
                           list[index].text,
-                          style: const TextStyle(color: Colors.black, fontSize: 14,fontWeight: FontWeight.w500),
+                          style: const TextStyle(color: Colors.black, fontSize: 14.4,fontWeight: FontWeight.w500),
                         ),
                         // Use subtitle for secondary information if needed
                         // subtitle: Text(list[index].secondaryText),
@@ -131,7 +137,7 @@ class BookingTransactionDetailsScreen extends StatelessWidget {
                            text: list[index].detailsText, textColor: AppFunctions.hexToColor("#137C58"),):
                          Text(
                            list[index].detailsText,
-                           style: const TextStyle(color: Colors.black, fontSize: 11.5),
+                           style: const TextStyle(color: Colors.black, fontSize: 14.4,fontWeight: FontWeight.w500),
                          ),
 
                     ),
@@ -142,10 +148,10 @@ class BookingTransactionDetailsScreen extends StatelessWidget {
             SizedBox(height: 8,),
             Divider(height: 1,thickness:1,color: AppColors.disable_card,),
             SizedBox(height: 8,),
-            const Text(
+             Text(
               'You can find more information about the booking or the booking details on the page of the booked provider.',
               style:
-              TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+              TextStyle(fontWeight: FontWeight.w500, fontSize: 12.4,color: AppFunctions.hexToColor("#00000080")),
             ),
             SizedBox(height: 8,),
           ],

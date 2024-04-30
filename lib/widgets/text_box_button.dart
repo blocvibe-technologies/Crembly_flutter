@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../utils/app_constants.dart';
+
 class TextBoxButton extends StatelessWidget {
   final Function()? onTap;
   final String text;
+  final Color ? borderColor;
 
   const TextBoxButton({
     Key? key,
     this.onTap,
-    required this.text,
+    required this.text, this.borderColor,
   }) : super(key: key);
 
   @override
@@ -15,15 +18,15 @@ class TextBoxButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), // Adjust the value as needed
+          borderRadius: BorderRadius.circular(AppConstants.default_radius), // Adjust the value as needed
           border: Border.all(
-            color: Colors.grey, // Add border color if needed
+            color: borderColor??Colors.grey, // Add border color if needed
             width: 1, // Add border width if needed
           ),
         ),
-        height: 48,
+        height: 52,
         width: MediaQuery.of(context).size.width,
         alignment: AlignmentDirectional.centerStart,
         child: Text(

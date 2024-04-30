@@ -2,11 +2,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tmdp_cashback_flutter/utils/app_constants.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
 import '../../utils/AppColors.dart';
+import '../../utils/app_functions/AppFunctions.dart';
 import '../../widgets/color_text_button.dart';
 
 class TravelBookingDetailCompairScreen extends StatelessWidget {
@@ -39,66 +41,120 @@ class TravelBookingDetailCompairScreen extends StatelessWidget {
                   const Text('Offers',
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
-                        fontSize: 26
+                        fontSize: 26.4,color: Colors.black
                     ),),
                   const SizedBox(
                     height: 8,
                   ),
-                  InkWell(
-                    onTap: (){
-                      Get.toNamed(AppRoute.search_screen);
-                    }
-                    ,
-                    child: Container(
-                      padding: EdgeInsets.all(7),
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: AppColors.container_color1,
-                            width: 1.0, // Adjust the width as needed
+                  Container(
+                    height: 52,
+                    padding: EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: AppColors.container_color1,
+                          width: 1.0, // Adjust the width as needed
 
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(20))
-                      ),
-                      child: Row(
-
-                        children: [
-                          SizedBox(width: 18,),
-
-                          const Icon(Icons.calendar_month),
-                          const SizedBox(width: 8,),
-
-                          Text('21 Apr. bis 27. Apr.'),
-                          SizedBox(width: 58,),
-                          Container(
-                            width: 2,
-                            color: AppColors.container_color1,
-                            height: MediaQuery.of(context).size.height*0.05,
-                          ),
-                          SizedBox(width: 10,),
-                          Icon(Icons.bed),
-                          SizedBox(width: 8,),
-
-                          Text('1'),
-                          Icon(Icons.man),
-                          SizedBox(width: 8,),
-
-                          Text('2'),
-                        ],
-                      ),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
-                  )
+                    child:  Row(
+
+                      children: [
+                        SizedBox(width: 18,),
+
+                        Icon(Icons.calendar_month),
+                        SizedBox(width: 8,),
+
+                        InkWell(
+                            onTap: (){
+                              AppFunctions.showBottomSheetTripWhen(context,DateTime.now(),DateTime.now());
+                            },
+                            child: Text('21 Apr. bis 27. Apr.')),
+                        SizedBox(width: 58,),
+                        Container(
+                          width: 1,
+                          color: AppColors.container_color1,
+                          height: MediaQuery.of(context).size.height*0.05,
+                        ),
+                        SizedBox(width: 10,),
+                        InkWell(
+                          onTap: (){
+                            AppFunctions.showBottomSheetTripWho(context,DateTime.now(),DateTime.now());
+                          },
+                          child: Row(
+                            children: [
+                              Icon(Icons.bed),
+                              SizedBox(width: 8,),
+
+                              Text('1'),
+                              SizedBox(width: 8,),
+                              SvgPicture.asset('assets/person_1.svg',height: 14,width: 14,color: Colors.black,),
+                              SizedBox(width: 8,),
+
+                              Text('2'),
+                            ],
+                          ),
+                        )
+
+                      ],
+                    ),
+                  ),
+                  // InkWell(
+                  //   onTap: (){
+                  //     Get.toNamed(AppRoute.search_screen);
+                  //   }
+                  //   ,
+                  //   child: Container(
+                  //     padding: EdgeInsets.all(7),
+                  //     decoration: BoxDecoration(
+                  //         border: Border.all(
+                  //           color: AppColors.container_color1,
+                  //           width: 1.0, // Adjust the width as needed
+                  //
+                  //         ),
+                  //         borderRadius: BorderRadius.all(Radius.circular(20))
+                  //     ),
+                  //     child: Row(
+                  //
+                  //       children: [
+                  //         SizedBox(width: 18,),
+                  //
+                  //         const Icon(Icons.calendar_month),
+                  //         const SizedBox(width: 8,),
+                  //
+                  //         Text('21 Apr. bis 27. Apr.'),
+                  //         SizedBox(width: 58,),
+                  //         Container(
+                  //           width: 2,
+                  //           color: AppColors.container_color1,
+                  //           height: MediaQuery.of(context).size.height*0.05,
+                  //         ),
+                  //         SizedBox(width: 10,),
+                  //         Icon(Icons.bed),
+                  //         SizedBox(width: 8,),
+                  //
+                  //         Text('1'),
+                  //         Icon(Icons.man),
+                  //         SizedBox(width: 8,),
+                  //
+                  //         Text('2'),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // )
                 ],
               ),
             ),
-            const Divider(height: 1,color: Colors.black,),
+             Divider(height: 1,color: AppFunctions.hexToColor("#B1B1B1"),),
             Padding(padding:const EdgeInsets.all(16.0),
             child: Text(AppConstants.line5,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12.4,
+              color: Colors.black
         
             ),
             ),),
-            const Divider(height: 1,color: Colors.black,),
+            Divider(height: 1,color: AppFunctions.hexToColor("#B1B1B1"),),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -148,7 +204,7 @@ class TravelBookingDetailCompairScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Divider(height: 1,color: Colors.black,),
+            Divider(height: 1,color: AppFunctions.hexToColor("#B1B1B1"),),
             const Padding(
               padding: EdgeInsets.all(16.0),
               child: Column(
@@ -191,7 +247,7 @@ class TravelBookingDetailCompairScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Divider(height: 1,color: Colors.black,),
+            Divider(height: 1,color: AppFunctions.hexToColor("#B1B1B1"),),
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Column(

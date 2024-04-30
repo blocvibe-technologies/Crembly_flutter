@@ -14,8 +14,8 @@ class UnderlinedText extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: TextStyle(
-          fontSize: 12.0,
+        style: const TextStyle(
+          fontSize: 12.4,
           color: Colors.black,
           fontWeight: FontWeight.w500
         ),
@@ -33,9 +33,11 @@ class UnderlinedText extends StatelessWidget {
         spans.add(
           TextSpan(
             text: '$word ',
-            style: TextStyle(
+            style: const TextStyle(
               decoration: TextDecoration.underline,
               color: Colors.blue, // Change color as needed
+              fontSize: 12.4,
+              fontWeight: FontWeight.w500
             ),
           ),
         );

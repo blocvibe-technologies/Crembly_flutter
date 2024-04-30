@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:tmdp_cashback_flutter/utils/AppColors.dart';
+import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 import 'package:tmdp_cashback_flutter/widgets/CustomButton.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -46,6 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
             item.toLowerCase().contains(widget._searchText.toLowerCase()))
         .toList();
 
+
     widget._focusedDay = DateTime.now();
     super.initState();
   }
@@ -71,7 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 20,
             ),
             SizedBox(
-              height: 47,
+              height: 52,
               width: MediaQuery.of(context).size.width,
               child: OutlinedButton(
                 onPressed: () {},
@@ -79,7 +81,10 @@ class _SearchScreenState extends State<SearchScreen> {
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                          10.0), // Set your desired border radius
+                          10.0,
+
+                      ), // Se
+                        side: BorderSide(color: AppFunctions.hexToColor("#B1B1B1"))// t your desired border radius
                     ),
                   ),
                 ),
@@ -98,18 +103,21 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 8,
             ),
             SizedBox(
-              height: 47,
+              height: 52,
               width: MediaQuery.of(context).size.width,
               child: OutlinedButton(
                 onPressed: () {
-                  showBottomSheetTripWhen(context);
+                  AppFunctions.showBottomSheetTripWhen(context,DateTime.now(),DateTime.now());
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
+
                       borderRadius: BorderRadius.circular(
-                          10.0), // Set your desired border radius
+                          10.0),
+                        side: BorderSide(color: AppFunctions.hexToColor("#B1B1B1"))// Set your desired border radius
                     ),
+
                   ),
                 ),
                 child: Row(
@@ -123,17 +131,18 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 8,
             ),
             SizedBox(
-              height: 47,
+              height: 52,
               width: MediaQuery.of(context).size.width,
               child: OutlinedButton(
                 onPressed: () {
-                  showBottomSheetTripWho(context);
+                  AppFunctions.showBottomSheetTripWho(context,DateTime.now(),DateTime.now());
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                          10.0), // Set your desired border radius
+                          10.0), // Set y
+                        side: BorderSide(color: AppFunctions.hexToColor("#B1B1B1"))// our desired border radius
                     ),
                   ),
                 ),
@@ -156,6 +165,8 @@ class _SearchScreenState extends State<SearchScreen> {
               onPressed: () {
                 _showBottomSheetSearch(context);
               },
+              fontSize: 16.3,
+              font_weight: FontWeight.w600,
             )
           ],
         ),
@@ -256,209 +267,7 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  void showBottomSheetTripWhen(BuildContext context) {
-    print('trip called !!');
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext builder) {
-        return StatefulBuilder(
-          builder: (BuildContext context, StateSetter setState) {
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Wrap(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'When is your trip?',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  TableCalendar(
-                    firstDay: DateTime.utc(2024, 1, 1),
-                    lastDay: DateTime.utc(2030, 12, 31),
-                    focusedDay: widget._focusedDay!,
-                    calendarFormat: widget._calendarFormat,
-                    selectedDayPredicate: (day) {
-                      return isSameDay(widget._selectedDay, day);
-                    },
-                    onDaySelected: (selectedDay, focusedDay) {
-                      setState(() {
-                        widget._selectedDay = selectedDay;
-                        widget._focusedDay = focusedDay;
-                        print(widget._selectedDay);
-                        print("${widget._focusedDay}>>");
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomButton(
-                    btnText: 'Continue',
-                    color: AppColors.primaryColor,
-                    onPressed: () {
-                      print(
-                          "current date is  :=>${widget._selectedDay} >>${widget._focusedDay}");
-                      Get.back();
-                    },
-                  )
-                ],
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
 
-  void showBottomSheetTripWho(BuildContext context) {
-    print('trip called !!');
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext builder) {
-        return StatefulBuilder(
-          builder: (BuildContext context, StateSetter setState) {
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Wrap(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Who is coming along?',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  SizedBox(
-                    height: 350,
 
-                    child: ListView.separated(
-                      // padding: EdgeInsets.symmetric(vertical: 20),
-                      itemCount: 5, // Number of items in the list
-                      itemBuilder: (BuildContext context, int index) {
-                        return comingAlongItem();
-                        // return ListTile(
-                        //   title: Text('Item $index'),
-                        // );
-                      },
-                      separatorBuilder: (BuildContext context, int index) {
-                        return Divider(
-                          color: Colors.grey.shade400, // Set the color of the divider
-                          thickness: 1, // Set the thickness of the divider
-                        );
-                      },
-                    ),
-                  ),
-                  CustomButton(
-                    btnText: 'Continue',
-                    color: AppColors.primaryColor,
-                    onPressed: () {
-                      print(
-                          "current date is  :=>${widget._selectedDay} >>${widget._focusedDay}");
-                      Get.back();
-                    },
-                  )
-                ],
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
 
-  Widget comingAlongItem() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Erwatchsene',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
-              ),
-              Text(
-                'Ab Jaheran 13 Jan',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 15,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.grey.shade400,
-                    width: 1.0, // Adjust the width as needed
-                  ),
-                  // borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(
-                  Icons.remove,
-                  color: Colors.grey.shade400,
-                ),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              const Text(
-                '0',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 19,
-                ),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.grey.shade700,
-                    width: 1.0, // Adjust the width as needed
-                  ),
-                  // borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(Icons.add, color: Colors.grey.shade700),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
 }

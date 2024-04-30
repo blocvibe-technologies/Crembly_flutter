@@ -2,17 +2,19 @@
 import 'package:flutter/cupertino.dart';
 
 class SettingListItemModel {
-  final IconData icon;
+  final String asset;
   final String text;
   final bool ? needVerification;
   final bool ? isVerified ;
 
   SettingListItemModel( {
-    required this.icon,
+    required this.asset,
     required this.text,
     this.needVerification = false,
     this.isVerified,
   });
+
+
 }
 
 

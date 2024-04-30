@@ -88,6 +88,21 @@ flutter:
     - assets/slider.svg
     - assets/marker_ic.svg
     - assets/star.svg
+    - assets/google.svg
+    - assets/logo2.svg
+    - assets/wallet.svg
+    - assets/person1.svg
+    - assets/person_1.svg
+    - assets/mail.svg
+    - assets/cake.svg
+    - assets/phone.svg
+    - assets/apartment.svg
+    - assets/query.svg
+    - assets/lock.svg
+    - assets/receipt.svg
+    - assets/euro.svg
+    - assets/bookmark.svg
+    - assets/refresh.svg
 #    - packages/country_code_picker/flags/
 
   # An image asset can refer to one or more resolution-specific "variants", see

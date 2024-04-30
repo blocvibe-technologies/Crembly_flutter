@@ -97,7 +97,7 @@ class _SupportScreenState extends State<SupportScreen> {
             const Text('FAQ',
             style: TextStyle(
               fontWeight: FontWeight.w500,
-              fontSize: 23
+              fontSize: 19.4
             ),),
             SizedBox(
               height: 8,

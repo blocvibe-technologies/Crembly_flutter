@@ -2,6 +2,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tmdp_cashback_flutter/utils/AppColors.dart';
 import 'package:tmdp_cashback_flutter/utils/app_constants.dart';
 import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
@@ -23,11 +24,23 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Complete registration'),
-        bottom: const PreferredSize(
+        // leading:IconButton(
+        //   icon: const Icon(Icons.arrow_back_ios_new_rounded),
+        //   onPressed: () {
+        //     // Navigate back
+        //     Get.back();
+        //   },
+        //   iconSize: 15, // Adjust the size of the back button
+        // ),
+        title: const Text('Complete registration',
+        style: TextStyle(
+          fontSize: 14.3,fontWeight: FontWeight.w700,
+          color: Colors.black
+        ),),
+        bottom:  const PreferredSize(
           preferredSize: Size.fromHeight(4.0), // Adjust height of Divider
           child: Divider(
-            color: Colors.black, // Adjust color of Divider
+            color: AppColors.top_divider_grey, // Adjust color of Divider
             height: 4.0, // Adjust height of Divider
           ),
         ),
@@ -38,39 +51,39 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
           child: Column(
 
             children: [
-              const SizedBox(height: 25,),
+              const SizedBox(height: 35,),
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(
-                      color:  AppFunctions.hexToColor("#B1B1B1"),
+                      color:  AppColors.container_color1,
                       width: 1.0, // Adjust the width as needed
                     ),
-                    borderRadius: BorderRadius.circular(7)
+                    borderRadius: BorderRadius.circular(AppConstants.default_radius)
                 ),
                 child: const Column(
                   children: [
                     CustomTextField1(hint: 'Satwinder', titleText: 'First Name',),
-                    Divider(color: Colors.grey,height: 1,thickness: 1,),
+                    Divider(color: AppColors.container_color1,height: 1,thickness: 1,),
                     CustomTextField1(hint: 'Shergill', titleText: 'Last Name',),
                   ],
                 ),
               ),
-              const SizedBox(height: 8,),
+              const SizedBox(height: 15,),
               Text(
                 AppConstants.line2,
-                style: const TextStyle(
-                    color: Colors.black,
+                style:  TextStyle(
+                    color: AppFunctions.hexToColor("#5D5D5D"),
                     fontSize: 10.4,
                     fontWeight: FontWeight.w400
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 15,),
 
-              TextBoxButton(text: 'Birthday (DD.MM.YYYY)',),
+              const TextBoxButton(text: 'Birthday (DD.MM.YYYY)',borderColor: AppColors.container_color1,),
               const SizedBox(height: 8,),
               Text(
                 AppConstants.line3,
-                style: const TextStyle(
-                    color: Colors.black,
+                style: TextStyle(
+                    color: AppFunctions.hexToColor("#5D5D5D"),
                     fontSize: 10.4,
                     fontWeight: FontWeight.w400
                 ),),
@@ -79,7 +92,7 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(
-                      color:  AppFunctions.hexToColor("#B1B1B1"),
+                      color:   AppColors.container_color1,
                       width: 1.0, // Adjust the width as needed
                     ),
                     borderRadius: BorderRadius.circular(7)
@@ -92,8 +105,8 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
 
               Text(
                 AppConstants.line4,
-                style: const TextStyle(
-                    color: Colors.black,
+                style: TextStyle(
+                    color: AppFunctions.hexToColor("#5D5D5D"),
                     fontSize: 10.4,
                     fontWeight: FontWeight.w400
                 ),),
@@ -104,7 +117,8 @@ class _CompleteRejistrationScreenState extends State<CompleteRejistrationScreen>
                CustomButton(btnText: 'Agree and Continue',onPressed: (){
                 // Get.toNamed(AppRoute.home);
                 Get.toNamed(AppRoute.bottom_nav_bar);
-              },)
+              },
+               fontSize: 16.3,font_weight: FontWeight.w600,)
             ],
           ),
         ),

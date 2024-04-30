@@ -7,11 +7,15 @@ class BookingTransactionItemModel {
   final String transactionId;
   final String transactionTitle;
   final Status ? status ;
+  final Color textColor;
+  final Color boxColor;
 
-  BookingTransactionItemModel({
+  BookingTransactionItemModel( {
     required this.transactionId,
     required this.transactionTitle,
     this.status = Status.pending,
+    required this.textColor,
+    required this.boxColor,
    });
 
   String getStatusText() {

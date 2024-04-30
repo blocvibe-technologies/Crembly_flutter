@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tmdp_cashback_flutter/models/enums/status_enum.dart';
@@ -15,12 +16,12 @@ class BookingTransactionScreen extends StatelessWidget {
   BookingTransactionScreen({super.key});
 
   List<BookingTransactionItemModel> list = [
-    BookingTransactionItemModel(transactionId: '#423123', transactionTitle: 'Booking.com',status: Status.canceled),
-    BookingTransactionItemModel(transactionId: '#827712', transactionTitle: 'Expedia.de',status: Status.pending),
-    BookingTransactionItemModel(transactionId: '#773123', transactionTitle: 'Hotels.com',status: Status.verified),
-    BookingTransactionItemModel(transactionId: '#863123', transactionTitle: 'Booking.com',status: Status.completed),
-    BookingTransactionItemModel(transactionId: '#421123', transactionTitle: 'Expedia.de',status: Status.notVerified),
-    BookingTransactionItemModel(transactionId: '#923123', transactionTitle: 'Hotels.com',status: Status.canceled)
+    BookingTransactionItemModel(transactionId: '#423123', transactionTitle: 'Booking.com',status: Status.canceled,textColor: AppFunctions.hexToColor("#7C1313"),boxColor:AppFunctions.hexToColor("#F9DDDD") ),
+    BookingTransactionItemModel(transactionId: '#827712', transactionTitle: 'Expedia.de',status: Status.pending,textColor: AppFunctions.hexToColor("#F57416"),boxColor:AppFunctions.hexToColor("#FFECD6")),
+    BookingTransactionItemModel(transactionId: '#773123', transactionTitle: 'Hotels.com',status: Status.verified,textColor: AppFunctions.hexToColor("#7C1313"),boxColor:AppFunctions.hexToColor("#F9DDDD")),
+    BookingTransactionItemModel(transactionId: '#863123', transactionTitle: 'Booking.com',status: Status.verified,textColor: AppFunctions.hexToColor("#E4F9DD"),boxColor:AppFunctions.hexToColor("#137C58")),
+    BookingTransactionItemModel(transactionId: '#421123', transactionTitle: 'Expedia.de',status: Status.notVerified,textColor: AppFunctions.hexToColor("#7C1313"),boxColor:AppFunctions.hexToColor("#F9DDDD")),
+    BookingTransactionItemModel(transactionId: '#923123', transactionTitle: 'Hotels.com',status: Status.canceled,textColor: AppFunctions.hexToColor("#F9DDDD"),boxColor:AppFunctions.hexToColor("#7C1313"))
 
   ];
   @override
@@ -57,7 +58,7 @@ class BookingTransactionScreen extends StatelessWidget {
                     width: 2.0, // Adjust the width as needed
 
                   ),
-                  borderRadius: BorderRadius.circular(8)
+                  borderRadius: BorderRadius.circular(7)
               ),
               child: const Row(
                 crossAxisAlignment:CrossAxisAlignment.center,
@@ -116,7 +117,11 @@ class BookingTransactionScreen extends StatelessWidget {
                       }
                     },
                     child: ListTile(
-                      leading: const Icon(Icons.verified,color: Colors.green,),
+                      leading:  SvgPicture.asset(
+                        'assets/receipt.svg',
+                        width: 16,
+                        height: 16,
+                      ),
                       title: Container(
                         // color: Colors.yellow,
                         child: Row(
@@ -134,22 +139,21 @@ class BookingTransactionScreen extends StatelessWidget {
                                 style: TextStyle(color: Colors.black, fontSize: 11.5),
                               ),
                             ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color: AppFunctions.hexToColor("#FFECD6"),
-                                      border: Border.all(
-                                        color: AppFunctions.hexToColor("#E8F2FC"),
-                                        width: 2.0, // Adjust the width as needed
+                            Container(
+                              alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(horizontal: 6,vertical: 3),
+                                decoration: BoxDecoration(
+                                    color: list[index].boxColor,
+                                    border: Border.all(
+                                      color: list[index].boxColor,
+                                      width: 2.0, // Adjust the width as needed
 
-                                      ),
-                                      borderRadius: BorderRadius.circular(8)
-                                  ),
-                                child: Text(
-                                  list[index].getStatusText(),
-                                  style: TextStyle(color: AppFunctions.hexToColor("#F57416"), fontSize: 10.5),
+                                    ),
+                                    borderRadius: BorderRadius.circular(8)
                                 ),
+                              child: Text(
+                                list[index].getStatusText(),
+                                style: TextStyle(color:list[index].textColor, fontSize: 10.5),
                               ),
                             ),
                           ],

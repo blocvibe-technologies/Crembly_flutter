@@ -4,15 +4,19 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:tmdp_cashback_flutter/services/data_service/DataService.dart';
+import 'package:tmdp_cashback_flutter/utils/app_constants.dart';
 import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
+import '../../services/api_client/ApiClient.dart';
 import '../../utils/AppColors.dart';
 import '../../widgets/color_text_button.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -26,16 +30,21 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    const Row(
+                     Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                             child: Text("Discover",
                                 style: TextStyle(
                                     fontFamily: "inter",
-                                    color: Colors.white, fontSize: 26,fontWeight: FontWeight.w700))),
-                        Icon(
-                          Icons.wallet,
-                          color: Colors.white,
+                                    color: Colors.white,
+                                    fontSize: 26.4,
+                                    fontWeight: FontWeight.w700
+                                ))),
+
+                         SvgPicture.asset(
+                          'assets/wallet.svg', // Path to your SVG file
+                          width: AppConstants.svg_icon_size,
+                          height: AppConstants.svg_icon_size,
                         ),
                         SizedBox(
                           width: 5,
@@ -79,8 +88,8 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           SvgPicture.asset('assets/slider.svg',
-                          height: 20,
-                          width: 20,),
+                          height: AppConstants.svg_icon_size,
+                          width: AppConstants.svg_icon_size,),
                           SizedBox(width: 8,)
                         ],
                       ),
@@ -89,6 +98,7 @@ class HomeScreen extends StatelessWidget {
                       height: 8,
                     ),
                     Container(
+                      height: 39,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -99,16 +109,17 @@ class HomeScreen extends StatelessWidget {
                         //   width: 1, // Add border width if needed
                         // ),
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
                           Icon(
                             Icons.error,
                             color: AppColors.error_blue,
+                            size: AppConstants.svg_icon_size,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
-                          Text("New here? This is how you earn cashback",
+                          const Text("New here? This is how you earn cashback",
                           style: TextStyle(
                             fontSize: 13
                           ),)
@@ -122,7 +133,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -152,7 +163,7 @@ class HomeScreen extends StatelessWidget {
                       'Book your trip with the best price & additional cashback.',
                       style: TextStyle(
                           // decoration: TextDecoration.underline,
-                          color: Colors.black,
+                          color: AppFunctions.hexToColor("#020202"),
                           fontSize: 12.4),
                     ),
                     SizedBox(
@@ -222,13 +233,13 @@ class HomeScreen extends StatelessWidget {
                 //   width: 1, // Add border width if needed
                 // ),
               ),
-              child: const Column(
+              child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: CircleAvatar(
-                        child: Icon(Icons.favorite_outline),
+                        child: Icon(Icons.favorite_outline,size: 18,),
                         radius: 16.2,
                         backgroundColor: Colors.white),
                   ),
@@ -245,34 +256,36 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 9.4,
                             decoration: TextDecoration.lineThrough,
-                            color: Colors.red),
+                            color: AppFunctions.hexToColor("#DE2A2A"),
+                            fontWeight: FontWeight.w500
+                        ),
                       ),
-                      SizedBox(width: 8),
-                      Text(
+                      const SizedBox(width: 8),
+                      const Text(
                         "110 €",
-                        style: TextStyle(fontSize: 14.4),
+                        style: TextStyle(fontSize: 14.4,fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  Row(
+                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      ColorTextBotton(
+                      const ColorTextBotton(
                         color: AppColors.container_1,
                         text: 'Daily deal',
                         textColor: AppColors.orange,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       ColorTextBotton(
                         color: AppColors.container_2,
                         text: 'Up to €20 cashback',
-                        textColor: AppColors.error_blue,
+                        textColor: AppFunctions.hexToColor("#137C58"),
                       ),
                       // ColorTextBotton(color: AppColors.orange, text: 'Daily deal',),
                     ],
@@ -285,7 +298,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const Text(
               'Brnistra Suites',
-              style: TextStyle(fontSize: 14,color: Colors.black,fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 14.4,color: Colors.black,fontWeight: FontWeight.w500),
             ),
             const SizedBox(
               height: 4,
@@ -298,9 +311,12 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   width: 8,
                 ),
-                const Text(
+                 Text(
                   'Poljud, Split',
-                  style: TextStyle(fontSize: 10.4),
+                  style: TextStyle(fontSize: 12.4,
+                      fontWeight: FontWeight.w500,
+                    color: AppFunctions.hexToColor("#5D5D5D")
+                  ),
                 )
               ],
             ),

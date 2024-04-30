@@ -3,10 +3,13 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tmdp_cashback_flutter/utils/AppColors.dart';
+import 'package:tmdp_cashback_flutter/utils/app_constants.dart';
+import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 import 'package:tmdp_cashback_flutter/widgets/CustomButton.dart';
 import 'package:tmdp_cashback_flutter/widgets/color_text_button.dart';
@@ -39,40 +42,49 @@ class TravelBookingDetailScreen extends StatelessWidget {
               const SizedBox(height: 10,),
               AutoImageSlider(),
               const SizedBox(height: 10,),
-              const Row(
+               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                       child: Text('Villa Trede',
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 26.4,
                         fontWeight: FontWeight.w700,
+                        color: Colors.black
 
                       ),)
                   ),
-                  Icon(Icons.star,color: Colors.yellow,),
-                  Text('4.8'),
+                  const Icon(Icons.star,color: Colors.yellow,),
+                  Text('4.8',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.4,color: AppFunctions.hexToColor("#6D6D6D")
+                    ),),
                   SizedBox(width: 8,)
                 ],
               ),
               const SizedBox(height: 5,),
-              const Row(
+               Row(
 
                 children: [
-                  Icon(Icons.location_on_outlined,color: Colors.black,),
-                  Text('Poljud, Split'),
+                  Icon(Icons.location_on_outlined,color: AppFunctions.hexToColor("#5D5D5D"),),
+                  Text('Poljud, Split',style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.4,color: AppFunctions.hexToColor("#5D5D5D")
+                  ),),
                   SizedBox(width: 8,)
                 ],
               ),
               const SizedBox(height: 12,),
               Container(
+                height: 52,
                 padding: EdgeInsets.all(7),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: AppColors.container_color1,
-                    width: 2.0, // Adjust the width as needed
+                    width: 1.0, // Adjust the width as needed
 
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(20))
+                  borderRadius: BorderRadius.all(Radius.circular(40))
                 ),
                 child:  Row(
 
@@ -82,22 +94,37 @@ class TravelBookingDetailScreen extends StatelessWidget {
                     Icon(Icons.calendar_month),
                     SizedBox(width: 8,),
 
-                    Text('21 Apr. bis 27. Apr.'),
+                    InkWell(
+                      onTap: (){
+                        AppFunctions.showBottomSheetTripWhen(context,DateTime.now(),DateTime.now());
+                      },
+                        child: Text('21 Apr. bis 27. Apr.')),
                     SizedBox(width: 58,),
                      Container(
-                       width: 2,
+                       width: 1,
                        color: AppColors.container_color1,
                        height: MediaQuery.of(context).size.height*0.05,
                      ),
                     SizedBox(width: 10,),
-                    Icon(Icons.bed),
-                    SizedBox(width: 8,),
+                    InkWell(
+                      onTap: (){
+                        AppFunctions.showBottomSheetTripWho(context,DateTime.now(),DateTime.now());
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.bed),
+                          SizedBox(width: 8,),
 
-                    Text('1'),
-                    Icon(Icons.man),
-                    SizedBox(width: 8,),
+                          Text('1'),
+                          SizedBox(width: 8,),
+                          SvgPicture.asset('assets/person_1.svg',height: 14,width: 14,color: Colors.black,),
+                          SizedBox(width: 8,),
 
-                    Text('2'),
+                          Text('2'),
+                        ],
+                      ),
+                    )
+
                   ],
                 ),
               ),
@@ -123,7 +150,7 @@ class TravelBookingDetailScreen extends StatelessWidget {
                     )
 
 ,
-                    const ColorTextBotton(text: 'Up to €20 cashback', color: AppColors.container_2, textColor: Colors.green)
+                     ColorTextBotton(text: 'Up to €20 cashback', color: AppColors.container_2, textColor: AppFunctions.hexToColor("#137C58"))
                     ,
                     SizedBox(width: 10,),
                     const Text('348€',
@@ -142,18 +169,19 @@ class TravelBookingDetailScreen extends StatelessWidget {
                 color: AppColors.primaryColor,
                 onPressed: (){
                   Get.toNamed(AppRoute.travel_booking_detail_compare);
-                },),
+                },
+               font_weight: FontWeight.w600,fontSize: 16.3,),
               const SizedBox(
                 height: 10,
               ),
               SizedBox(
-                height: 47,
+                height: 52,
                 width: MediaQuery.of(context).size.width,
                 child: OutlinedButton(onPressed: (){},
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0), // Set your desired border radius
+                        borderRadius: BorderRadius.circular(AppConstants.default_radius), // Set your desired border radius
                       ),
                     ),
                   ), child: const Text(
@@ -167,12 +195,14 @@ class TravelBookingDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 20,),
               const Text('Description',style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700
+                fontSize: 20.4,
+                fontWeight: FontWeight.w700,
+                  color: Colors.black
               ),),
-              const Text('Book your trip with the best price & additional cashback.',style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400
+               Text('Book your trip with the best price & additional cashback.',style: TextStyle(
+                fontSize: 12.4,
+                fontWeight: FontWeight.w400,
+                   color: AppFunctions.hexToColor("#020202")
               ),)
             ],
           ),

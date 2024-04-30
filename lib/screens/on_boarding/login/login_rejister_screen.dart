@@ -12,11 +12,13 @@ import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
 import '../../../widgets/CustomButton.dart';
 import '../../../widgets/CustomIconButton.dart';
+import '../../../widgets/custom_text_field1.dart';
 
 
 class LoginRejisterScreen extends StatefulWidget {
    LoginRejisterScreen({super.key});
   String? selectedCountry = "Germany (+49)";
+  TextEditingController phone_controller = TextEditingController();
   @override
   State<LoginRejisterScreen> createState() => _LoginRejisterScreenState();
 }
@@ -27,12 +29,18 @@ class _LoginRejisterScreenState extends State<LoginRejisterScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Log in or register'),
+        title: const Text('Log in or register',
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+            fontSize: 14.3,
+            color: Colors.black
+        ),),
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(4.0), // Adjust height of Divider
           child: Divider(
-            color: Colors.black, // Adjust color of Divider
-            height: 4.0, // Adjust height of Divider
+            color: AppColors.top_divider_grey, // Adjust color of Divider
+            height: 1.0, // Adjust height of Divider
+            thickness: 1,
           ),
         ),
       ),
@@ -45,107 +53,94 @@ class _LoginRejisterScreenState extends State<LoginRejisterScreen> {
               const SizedBox(height: 25,),
               SvgPicture.asset(
                 color: Colors.black,
-                'assets/crembly_logo.svg',
+                'assets/logo2.svg',
                 semanticsLabel: 'satta_logo',
                 // Other properties like width, height, color, etc. can be adjusted here
               ),
               const SizedBox(height: 25,),
-
               Container(
-                // margin: const EdgeInsets.all(8),
-                padding: const EdgeInsets.all(8),
-                width: MediaQuery.of(context).size.width,
-          
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey,width: 1), // Grey stroke
-                  borderRadius: BorderRadius.circular(7.0), // Rounded corners
-                  color: Colors.white, // White background
+                    border: Border.all(
+                      color:  AppFunctions.hexToColor("#B1B1B1"),
+                      width: 1.0, // Adjust the width as needed
+                    ),
+                    borderRadius: BorderRadius.circular(7)
                 ),
-          
-          
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child:  Column(
                   children: [
-                    const Text("Country/Region",style: TextStyle(
-                        fontSize: 11,
-                        color: AppColors.disable_textcolor,
-                    ),),
-          
                     InkWell(
-                      onTap: (){
+                      onTap:(){
                         showCountryPickerDialog(context);
                       },
-                      child: Text(
-                        widget.selectedCountry??"Germany (+49)",
-                        style: const TextStyle(
-                          color: Colors.black,
-                            fontSize: 14.3
+                        child: CustomTextField1(controller:widget.phone_controller,needText: true ,hint: widget.selectedCountry??"Germany (+49)", titleText: 'Country/Region',)),
+                    const Divider(color: Colors.grey,height: 1,thickness: 1,),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 13),
+                      child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
+
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.zero,
+                          isDense: true,
+                          hintText: "Phone Number",
+                        ),
+                        style: TextStyle(
+                          fontSize: 14.3
                         ),
                       ),
-                    )
-                 ,
-          
-                    const SizedBox(height: 8,),
-                    const Divider(height: 1,thickness: 1,color: AppColors.disable_textcolor,),
-                    // const SizedBox(height: 8,),
-                    const TextField(
-          
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Phone number', // Placeholder text
-                      ),
                     ),
-                    // const SizedBox(height: 8,),
-          
-                  ]
-          
+                  ],
                 ),
               ),
-              SizedBox(height: 8,),
+              SizedBox(height: 16,),
               Text(
                 AppConstants.line1,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 10.4,
-                    fontWeight: FontWeight.w400
+                style:  TextStyle(
+                  fontSize: 10.4,
+                  fontWeight: FontWeight.w400,
+                  color: AppFunctions.hexToColor("#020202"),
                 ),),
               const SizedBox(height: 12,),
-              CustomButton(btnText: 'Continue', onPressed: (){
+              CustomButton(fontSize:16.3,btnText: 'Continue', onPressed: (){
 
                 Get.toNamed(AppRoute.complete_registration);
                 print('clicked !!');
               },color: AppColors.primaryColor,),
-              const Row(
+               Row(
                 children: [
                   Expanded(child: Divider(
-                    color: Colors.black,
+                    color: AppFunctions.hexToColor("#B1B1B1"),
                     thickness: 1,
                     height: 1,
         
                   )),
         
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 18),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 22),
                     child: Text('oder',),
                   ),
         
                   Expanded(child: Divider(
-                    color: Colors.black,
+                    color: AppFunctions.hexToColor("#B1B1B1"),
                     thickness: 1,
                     height: 1,
         
                   )),
                 ],
               ),
-              const CustomIconTextButton(
-                sufixIcon: Icons.email, text: 'Log in with your e-mail address',
+               CustomIconTextButton(
+                sufixIcon: Icon(Icons.email_outlined), text: 'Log in with your e-mail address',borderColor: AppFunctions.hexToColor("#5D5D5D"),
               ),
-              const CustomIconTextButton(
-                sufixIcon: Icons.apple, text: 'Continue with Apple',
+               CustomIconTextButton(
+                sufixIcon: Icon(Icons.apple), text: 'Continue with Apple',borderColor: AppFunctions.hexToColor("#5D5D5D")
               ),
-              const CustomIconTextButton(
-                sufixIcon: Icons.g_mobiledata_rounded, text: 'Continue with Google',
+               CustomIconTextButton(
+                sufixIcon:  SvgPicture.asset(
+                  'assets/google.svg', // Path to your SVG file
+                  width: 22,
+                  height: 22,
+                ), text: 'Continue with Google',borderColor: AppFunctions.hexToColor("#5D5D5D")
               )
             ],
           ),

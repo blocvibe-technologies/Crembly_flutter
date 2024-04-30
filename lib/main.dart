@@ -5,9 +5,16 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:tmdp_cashback_flutter/screens/home/home_screen.dart';
+import 'package:tmdp_cashback_flutter/services/api_client/ApiClient.dart';
+import 'package:tmdp_cashback_flutter/services/data_service/DataService.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
 void main() {
+  var a = APIClient();
+
+  final DataService dataService = DataService(apiClient:a);
+  var data = dataService.fetchUsers();
+  print(data);
   runApp( MyApp());
 }
 
@@ -26,12 +33,18 @@ class MyApp extends StatelessWidget {
           fontFamily: "inter",
           textTheme: const TextTheme(
               bodyText1: TextStyle(fontSize: 14.0), // Set default text size
-              // You can define other text styles as needed
+
           ),
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(
+            size: 15, // Adjust the size of the leading icon globally
+            color: Colors.black
+          ),
+        )
 
       ),
       home: HomeScreen(),
-      supportedLocales: [
+      supportedLocales: const [
         Locale("af"),
         Locale("am"),
         Locale("ar"),

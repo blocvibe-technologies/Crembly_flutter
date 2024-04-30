@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tmdp_cashback_flutter/utils/routes/app_routes.dart';
 
@@ -13,10 +14,10 @@ class ProfileScreen extends StatelessWidget {
    ProfileScreen({Key? key});
 
   List<SettingListItemModel> list = [
-  SettingListItemModel(icon: Icons.receipt, text: 'Bookings & Transactions'),
-  SettingListItemModel(icon: Icons.person, text: 'Personal Data'),
-  SettingListItemModel(icon: Icons.lock, text: 'Account & Security'),
-  SettingListItemModel(icon: Icons.help_outline, text: 'Support'),
+  SettingListItemModel(asset: "assets/receipt.svg", text: 'Bookings & Transactions'),
+  SettingListItemModel(asset: "assets/person_1.svg", text: 'Personal Data'),
+  SettingListItemModel(asset: 'assets/lock.svg', text: 'Account & Security'),
+  SettingListItemModel(asset: "assets/query.svg", text: 'Support'),
 
   ];
   @override
@@ -45,15 +46,15 @@ class ProfileScreen extends StatelessWidget {
                             Text(
                               '20 € Cashback',
                               style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 14.4,
+                                fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
                             ),
                             Text(
                               'Total revenue',
                               style: TextStyle(
-                                fontSize: 11,
+                                fontSize: 11.4,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
@@ -68,7 +69,7 @@ class ProfileScreen extends StatelessWidget {
                                 '0,00€',
                                 textAlign: TextAlign.end,
                                 style: TextStyle(
-                                  fontSize: 13,
+                                  fontSize: 13.4,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.white,
                                 ),
@@ -92,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
                               'Available for withdrawal',
                               textAlign: TextAlign.start,
                               style: TextStyle(
-                                fontSize: 11,
+                                fontSize: 11.4,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
@@ -106,7 +107,7 @@ class ProfileScreen extends StatelessWidget {
                             const Text(
                               '20 € Cashback',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 20.4,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
@@ -116,7 +117,7 @@ class ProfileScreen extends StatelessWidget {
                                 Get.toNamed(AppRoute.payout_screen);
                               },
                               child: Container(
-                                height: 30,
+                                height: 28,
                                 padding: EdgeInsets.symmetric(horizontal: 15),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
@@ -125,12 +126,12 @@ class ProfileScreen extends StatelessWidget {
                                       color: Colors.white,
                                       width: 2.0, // Adjust the width as needed
                                     ),
-                                    borderRadius: BorderRadius.circular(8)),
+                                    borderRadius: BorderRadius.circular(9)),
                                 child: const Text(
                                   'Pay off',
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 12,
+                                    fontSize: 12.3,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -190,10 +191,15 @@ class ProfileScreen extends StatelessWidget {
                       }
                     },
                     child: ListTile(
-                      leading: Icon(list[index].icon),
+                      leading:
+                      SvgPicture.asset(
+                        list[index].asset,
+                      width: 16,
+                      height: 16,
+                    ),
                       title: Text(
                         list[index].text,
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black,fontSize: 14.4,fontWeight: FontWeight.w500),
                       ),
                       // Use subtitle for secondary information if needed
                       // subtitle: Text(list[index].secondaryText),
@@ -212,7 +218,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 51,
+        height: 52,
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.only(left: 12,right: 12,bottom: 12)
       ,

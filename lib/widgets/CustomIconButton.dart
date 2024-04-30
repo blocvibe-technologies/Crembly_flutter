@@ -6,9 +6,10 @@ import 'package:flutter/widgets.dart';
 class CustomIconTextButton extends StatelessWidget {
   final Function()? onpressed;
   final Color? color;
-  final IconData sufixIcon ;
+  final Widget sufixIcon ;
   final String text;
-  const CustomIconTextButton({super.key, this.onpressed, this.color, required this.sufixIcon, required this.text});
+  final Color ? borderColor;
+  const CustomIconTextButton({super.key, this.onpressed, this.color, required this.sufixIcon, required this.text, this.borderColor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class CustomIconTextButton extends StatelessWidget {
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(7), // Set border radius
-            side: const BorderSide(color: Colors.black), // Set border color
+            side:  BorderSide(color: borderColor?? Colors.yellow), // Set border color
           ),
         ),
         foregroundColor: MaterialStateProperty.all<Color>(color??Colors.black), // Text color
@@ -31,7 +32,7 @@ class CustomIconTextButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
 
-          Icon(sufixIcon),
+          sufixIcon,
           SizedBox(width: 8.0), // Adjust spacing between icon and text
           Expanded(child: Text(text,textAlign: TextAlign.center,)),
         ],

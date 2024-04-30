@@ -15,7 +15,7 @@ class PayOutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body:  SingleChildScrollView(
+      body:SingleChildScrollView(
         child: Column(
           children: [
             Padding(
@@ -30,20 +30,20 @@ class PayOutScreen extends StatelessWidget {
                       Text(
                         'Payout',
                         style:
-                            TextStyle(fontWeight: FontWeight.w700, fontSize: 26),
+                            TextStyle(fontWeight: FontWeight.w700, fontSize: 26.4,color: Colors.black),
                       ),
                     ],
                   ),
                   const Text(
-                    'We need the following information to give you your to be able to pay out money',
+                    'We need the following information to give you your to be able to pay out money',
                     textAlign: TextAlign.start,
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.4,color: Colors.black),
                   ),
                   const SizedBox(height: 20,),
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color:  AppFunctions.hexToColor("#B1B1B1"),
+                        color:  AppColors.container_color1,
                         width: 1.0, // Adjust the width as needed
                       ),
                       borderRadius: BorderRadius.circular(7)
@@ -51,7 +51,7 @@ class PayOutScreen extends StatelessWidget {
                     child: const Column(
                       children: [
                         CustomTextField1(hint: 'Satwinder', titleText: 'First Name',),
-                        Divider(color: Colors.grey,height: 1,thickness: 1,),
+                        Divider(color:AppColors.container_color1,height: 1,thickness: 1,),
                         CustomTextField1(hint: 'Shergill', titleText: 'Last Name',),
                       ],
                     ),
@@ -60,7 +60,7 @@ class PayOutScreen extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color:  AppFunctions.hexToColor("#B1B1B1"),
+                          color:  AppColors.container_color1,
                           width: 1.0, // Adjust the width as needed
                         ),
                         borderRadius: BorderRadius.circular(7)
@@ -75,7 +75,7 @@ class PayOutScreen extends StatelessWidget {
                         child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                  color:  AppFunctions.hexToColor("#B1B1B1"),
+                                  color: AppColors.container_color1,
                                   width: 1.0, // Adjust the width as needed
                                 ),
                                 borderRadius: BorderRadius.circular(7)
@@ -87,7 +87,7 @@ class PayOutScreen extends StatelessWidget {
                         child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                  color:  AppFunctions.hexToColor("#B1B1B1"),
+                                  color:  AppColors.container_color1,
                                   width: 1.0, // Adjust the width as needed
                                 ),
                                 borderRadius: BorderRadius.circular(7)
@@ -104,7 +104,7 @@ class PayOutScreen extends StatelessWidget {
             // const SizedBox(height: 12),
             const Divider(
               height: 1,
-              color: Colors.black,
+              color: AppColors.container_color1,
             ),
             // const SizedBox(height: 12),
              Padding(
@@ -116,7 +116,7 @@ class PayOutScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color:  AppFunctions.hexToColor("#B1B1B1"),
+                          color:  AppColors.container_color1,
                           width: 1.0, // Adjust the width as needed
                         ),
                         borderRadius: BorderRadius.circular(7)
@@ -125,7 +125,7 @@ class PayOutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8,),
                   Text(AppConstants.line6,style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 12.59,
                     color: AppFunctions.hexToColor("#5D5D5D")
                   ),),
                   const SizedBox(height: 18,),
@@ -133,7 +133,7 @@ class PayOutScreen extends StatelessWidget {
                   Container(
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color:  AppFunctions.hexToColor("#B1B1B1"),
+                            color:  AppColors.container_color1,
                             width: 1.0, // Adjust the width as needed
                           ),
                           borderRadius: BorderRadius.circular(7)
@@ -142,7 +142,7 @@ class PayOutScreen extends StatelessWidget {
                   const SizedBox(height: 12,),
                   CustomButton(btnText: 'Pay off',color: AppColors.primaryColor,onPressed: (){
                     Get.back();
-                  },),
+                  },font_weight: FontWeight.w600,fontSize: 16.3,),
                   const SizedBox(height: 20,),
                 ],
               ),

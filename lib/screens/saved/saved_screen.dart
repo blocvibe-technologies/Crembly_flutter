@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:tmdp_cashback_flutter/utils/app_functions/AppFunctions.dart';
 
 import '../../utils/AppColors.dart';
 import '../../utils/routes/app_routes.dart';
@@ -76,7 +77,7 @@ class DataItem extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: CircleAvatar(
-                        child: Icon(Icons.favorite_outline,color: Colors.white,),
+                        child: Icon(Icons.favorite_outline,color: Colors.white,size: 16,),
                         radius: 16.2,
                         backgroundColor: AppColors.primaryColor),
                   ),
@@ -114,27 +115,27 @@ class DataItem extends StatelessWidget {
             ),
             const Text(
               'Brnistra Suites',
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14.4,fontWeight: FontWeight.w500,color: Colors.black),
             ),
             const SizedBox(
               height: 4,
             ),
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
                     Icon(Icons.location_on_outlined, size: 20),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     Text(
                       'Poljud, Split',
-                      style: TextStyle(fontSize: 10.4),
+                      style: TextStyle(fontSize: 12.4,fontWeight: FontWeight.w500,color: AppFunctions.hexToColor("#5D5D5D")),
                     )
                   ],
                 ),
-                Wrap(
+                const Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text(
@@ -157,14 +158,14 @@ class DataItem extends StatelessWidget {
             const SizedBox(
               width: 8,
             ),
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Icon(Icons.star, color: Colors.yellow, size: 20),
                 SizedBox(
                   width: 8,
                 ),
-                Text('4.8', style: TextStyle(fontSize: 10.4))
+                Text('4.8', style: TextStyle(fontSize: 10.4,fontWeight: FontWeight.w500,color: AppFunctions.hexToColor("#6D6D6D")))
               ],
             ),
           ],
